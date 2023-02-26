@@ -45,13 +45,21 @@ h2 {
     width: 98%;
 }
 
+#filteredMessage {
+    grid-column: 2/2;
+    text-align: center;
+    padding : 7%;
+    font-family: sans-serif;
+    font-size: 20px;
+    color:rgb(2, 79, 142);
+}
+
 /*! PARTICULARS ++++++++++++++++++++++++++++++++++++++++ */
 
 .buttonStyle {
     width: 40%;
     margin-top: 8px;
     margin-left: 7%;
-    
 }
 
 .imgSize {

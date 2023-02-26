@@ -4,10 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //Elementos Capturados
     const showFilters = document.querySelector("#showFilters");
     const filteredPics = document.querySelector("#filteredPics");
-    const selectedFilter = document.querySelector("#selectedFilter");
-    const filterMessage = document.querySelector("#filterMessage");
+    const filteredMessage = document.querySelector("#filteredMessage");
     const filtersCont = document.querySelector("#filtersCont");
-
 
     // Constantes programa
 
@@ -24,9 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
         {tag1:"Road", tag2:"Water", url:"viajes-6.jpg", alt:"viaje 6", title:"foto de viaje 6"},
         {tag1:"Mountain", tag2:"Town", url:"viajes-7.jpg", alt:"viaje 7", title:"foto de viaje 7"}
     ];
+
      //Objetos por TAGS
 
-    const objWater = [
+    let objWater = [
         {url:"viajes-1.jpg", alt:"viaje 1", title:"foto de viaje 1"},
         {url:"viajes-2.jpg", alt:"viaje 2", title:"foto de viaje 2"},
         {url:"viajes-4.jpg", alt:"viaje 4", title:"foto de viaje 4"},
@@ -78,23 +77,52 @@ document.addEventListener("DOMContentLoaded", () => {
     filtersCont.addEventListener('click', ({target})=> {
         if(target.matches("#B1")) {
             paintWater();
+            searchResult(objWater);
+            if (objWater.length == 0) {
+                notFound();
+            };
         }
+
         if(target.matches("#B2")) {
             paintTown();
+            searchResult(objTown);
+            if (objTown.length == 0) {
+                notFound();
+            };
         }
+
         if(target.matches("#B3")) {
             paintMountain();
+            searchResult(objMountain);
+            if (objMountain.length == 0) {
+                notFound();
+            };
         }
+
         if(target.matches("#B4")) {
             paintRoad();
+            searchResult(objRoad);
+            if (objRoad.length == 0) {
+                notFound();
+            };
         }
+
         if(target.matches("#B5")) {
             paintBridge();
+            searchResult(objBridge);
+            if (objBridge.length == 0) {
+                notFound();
+            };
         }
-        // if(target.matches("B6")) {
-        //     // paintForest(); esta función no se ha creado.
-        // }
-    });
+
+        if(target.matches("#B6")) {
+            paintForest();
+            searchResult(objForest);
+            if (objForest.length == 0) {
+                notFound();
+            };
+        }
+        });
 
     
     // FUNCIONES ++++++++++++++++++++++++++++++++++++++++
@@ -117,9 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
             imgWater.title = item.title;
 
             filteredPics.append(waterTitle, imgWater);
-
-        })
-    }
+    })  
+    };
 
     const paintTown=()=>{
 
@@ -139,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             filteredPics.append(townTitle, imgTown);
 
         })
-        };
+    };
 
     const paintMountain=()=>{
         
@@ -198,6 +225,46 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     };
 
+    const paintForest=()=>{
+
+        filteredPics.innerHTML = "";
+
+        objForest.forEach((item) => {
+
+            const forestTitle = document.createElement('H3');
+            forestTitle.textContent = item.alt;
+
+            const imgForest = document.createElement('IMG');
+            imgForest.classList.add('imgSize');
+            imgForest.src = URL + item.url;
+            imgForest.alt = item.alt;
+            imgForest.title = item.title;
+
+            filteredPics.append(forestTitle, imgForest);
+    })      
+    };
+
+    //!Función pintar resultado de búsqueda
+    const searchResult = (array) => {
+        filteredMessage.innerHTML = "";
+
+        const found = document.createElement('P');
+        found.classList.add('border');
+        found.textContent = (`${array.length} pictures related to this TAG.`)
+
+        filteredMessage.append(found);
+    }
+
+    //!Función alert NONE FOUND
+    const notFound = () => {
+        filteredMessage.innerHTML = "";
+
+        const untracked = document.createElement('P');
+        untracked.classList.add('border');
+        untracked.textContent = (`I have NO pictures related to this TAG.`)
+
+        filteredMessage.append(untracked);
+    }
 
     //!Función que pinta los botones de los filtros
     const paintFilters = () => {
@@ -216,7 +283,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
     
-
     const init=()=>{           //*función que inicializa todo
         alert("You can filter images by tags! Try it now!");
     }
