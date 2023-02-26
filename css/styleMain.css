@@ -1,0 +1,139 @@
+/*! FOOTER ++++++++++++++++++++++++++++++++++++++++ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(255, 64, 0);
+}
+
+h2 {
+    text-align: center;
+    margin: 10px;
+}
+
+h3 {
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw;
+    margin: 10px;
+}
+
+.gridContainer2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2vw;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 40%;
+}
+
+.border {
+    border: 3px solid black;
+}
+
+.center {
+    text-align: center;
+}
+
+.filterPage {
+    width: 98%;
+}
+/*! PARTICULARS ++++++++++++++++++++++++++++++++++++++++ */
+
+.imgSize {
+    width: 200%;
+}
+
+/*! FOOTER ++++++++++++++++++++++++++++++++++++++++ */
+footer {
+    font-family: sans-serif;
+    border-top: 1px solid black;
+    margin-top: 30px;
+}
+
+/*! MEDIA QUERYS -- ADAPTABLE */
+/* ===================================
+                     media query 768px
+======================================*/
+@media screen and (min-width:768px) {
+    .gridContainer2 {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        gap: 2vw;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 30%;
+    }
+    
+    h3 {
+        font-family: sans-serif;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .imgSize {
+        width: 270%;
+    }
+
+}
+/*768px end.*/
+
+/* ===================================
+                     media query 992px
+======================================*/
+@media screen and (min-width:992px) {
+    .gridContainer2 {
+        display: grid;
+        grid-template-columns: repeat(3, 3fr);
+        gap: 2vw;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 30%;
+    }
+    
+    h3 {
+        font-family: sans-serif;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .imgSize {
+        width: 290%;
+    }
+}
+/*992px end.*/
+
+/* ===================================
+                    media query 1200px
+======================================*/
+@media screen and (min-width:1200px) {
+    .gridContainer2 {
+        display: grid;
+        grid-template-columns: repeat(3, 3fr);
+        gap: 2vw;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 30%;
+    }
+    
+    h3 {
+        font-family: sans-serif;
+        font-size: 40px;
+        text-align: center;
+    }
+    .imgSize {
+        width: 290%;
+    }
+}
+/*1200px end.*/
